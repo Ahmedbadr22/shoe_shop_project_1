@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="loginFragment"
+            type="com.ahmed_badr.shoesstore.presentation.fragments.LoginFragment" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:labelFor="@+id/editTextEmail"
+            android:text="@string/email"/>
+
+        <EditText
+            android:id="@+id/editTextEmail"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:autofillHints="false"
+            android:inputType="textEmailAddress"
+            tools:ignore="DuplicateSpeakableTextCheck" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:labelFor="@+id/editTextPassword"
+            android:text="@string/password"
+            android:layout_marginTop="30dp"/>
+
+        <EditText
+            android:id="@+id/editTextPassword"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:autofillHints="false"
+            android:inputType="textPassword"
+            tools:ignore="DuplicateSpeakableTextCheck" />
+
+        <Button
+            android:id="@+id/buttonLoginWithExistingEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:onClick="@{() -> loginFragment.navigateToWelcomeScreen()}"
+            android:text="@string/login_with_existing_email"
+            android:layout_marginTop="50dp"/>
+
+        <Button
+            android:id="@+id/buttonLoginWithNewEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:onClick="@{() -> loginFragment.navigateToWelcomeScreen()}"
+            android:text="@string/login_with_new_email"
+            android:layout_marginTop="10dp"/>
+    </LinearLayout>
+</layout>
