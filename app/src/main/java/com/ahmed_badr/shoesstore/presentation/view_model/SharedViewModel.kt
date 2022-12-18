@@ -11,6 +11,7 @@ class SharedViewModel : ViewModel() {
     val shoeListItem : LiveData<MutableList<Shoe>>
         get() = _shoeListItem
 
+    val shoe = Shoe(images = listOf(R.drawable.shoe_1))
 
     init {
         val list = mutableListOf(
@@ -20,7 +21,7 @@ class SharedViewModel : ViewModel() {
         _shoeListItem = MutableLiveData(list)
     }
 
-    fun setShoe(shoe: Shoe) {
+    fun onSave() {
         _shoeListItem.value?.add(shoe)
     }
 }

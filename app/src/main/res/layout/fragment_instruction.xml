@@ -9,6 +9,7 @@
             type="com.ahmed_badr.shoesstore.presentation.fragments.InstructionFragment" />
     </data>
 
+    <!-- Using ConstraintLayout to avoid hierarchical nesting views  -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

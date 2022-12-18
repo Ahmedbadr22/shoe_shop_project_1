@@ -4,6 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <import type="com.ahmed_badr.shoesstore.utils.Converter" />
+        <variable
+            name="shoe"
+            type="com.ahmed_badr.shoesstore.data.models.Shoe" />
+
         <variable
             name="viewModel"
             type="com.ahmed_badr.shoesstore.presentation.view_model.SharedViewModel" />
@@ -13,11 +18,11 @@
             type="com.ahmed_badr.shoesstore.presentation.fragments.ShoeDetailFragment" />
     </data>
 
+    <!-- Using ConstraintLayout to avoid hierarchical nesting views  -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="16dp">
-
 
         <TextView
             android:id="@+id/textView5"
@@ -37,7 +42,7 @@
             android:ems="10"
             android:inputType="textPersonName"
             android:minHeight="48dp"
-            android:text="@string/name"
+            android:text="@={shoe.name}"
             app:layout_constraintEnd_toEndOf="@+id/textView5"
             app:layout_constraintStart_toStartOf="@+id/textView5"
             app:layout_constraintTop_toBottomOf="@+id/textView5"
@@ -59,9 +64,9 @@
             android:layout_height="wrap_content"
             android:autofillHints=""
             android:ems="10"
-            android:inputType="numberDecimal"
+            android:inputType="text"
             android:minHeight="48dp"
-            android:text="@string/emptySize"
+            android:text="@={Converter.doubleToString(shoe.size)}"
             app:layout_constraintEnd_toEndOf="@+id/textView5"
             app:layout_constraintStart_toStartOf="@+id/textView5"
             app:layout_constraintTop_toBottomOf="@+id/textView"
@@ -85,7 +90,7 @@
             android:ems="10"
             android:inputType="textPersonName"
             android:minHeight="48dp"
-            android:text="@string/company"
+            android:text="@={shoe.company}"
             app:layout_constraintEnd_toEndOf="@+id/textViewCompany"
             app:layout_constraintStart_toStartOf="@+id/textViewCompany"
             app:layout_constraintTop_toBottomOf="@+id/textViewCompany"
@@ -111,7 +116,7 @@
             android:gravity="start"
             android:inputType="textMultiLine"
             android:minHeight="48dp"
-            android:text="@string/description"
+            android:text="@={shoe.description}"
             app:layout_constraintBottom_toTopOf="@+id/buttonCancel"
             app:layout_constraintEnd_toEndOf="@+id/textViewShoeDescription"
             app:layout_constraintStart_toStartOf="@+id/textViewShoeDescription"
@@ -135,7 +140,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/save"
-            android:onClick="@{() -> shoeDetailFragment.saveShoe()}"
+            android:onClick="@{() -> viewModel.onSave()}"
             android:layout_marginHorizontal="8dp"
             app:layout_constraintBaseline_toBaselineOf="@+id/buttonCancel"
             app:layout_constraintEnd_toEndOf="parent"

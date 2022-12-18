@@ -9,6 +9,7 @@
             type="com.ahmed_badr.shoesstore.presentation.fragments.ShoeListFragment" />
     </data>
 
+    <!-- Using ConstraintLayout because of we need to add Floating Action Button Over The Layout  -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -28,6 +29,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:srcCompat="@drawable/ic_baseline_add_24" />
 
+        <!-- Using ScrollView to add the ability of scrolling to the shoes list   -->
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -38,6 +40,7 @@
             tools:context=".presentation.fragments.ShoeListFragment"
             tools:ignore="SpeakableTextPresentCheck">
 
+            <!-- Using LinearLayout in a vertical orientation to list the added shoe items  -->
             <LinearLayout
                 android:id="@+id/linear_layout_shoes"
                 android:layout_width="match_parent"
